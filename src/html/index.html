@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 50%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            padding: 6px 12px;
+            margin: 2px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-edit {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+    <script src="../js/arquivo.js"></script>
+</head>
+<body>
+    <h1>Cadastros</h1>
+
+    <div class="search-box">
+        <label for="search">Pesquisar Nome:</label>
+        <input type="text" id="search" placeholder="Digite um nome...">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>João Silva</td>
+                <td>10/05/1990</td>
+                <td>(11) 98765-4321</td>
+                <td>joao.silva@email.com</td>
+                <td>
+                    <button class="btn btn-edit">Editar</button>
+                    <button class="btn btn-delete">Excluir</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Maria Santos</td>
+                <td>22/08/1985</td>
+                <td>(21) 99999-1234</td>
+                <td>maria.santos@email.com</td>
+                <td>
+                    <button class="btn btn-edit">Editar</button>
+                    <button class="btn btn-delete">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
