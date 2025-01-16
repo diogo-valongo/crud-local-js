@@ -19,16 +19,30 @@ if(localStorage.getItem('arrayCadastro') == null ){
     localStorage.setItem('arrayCadastro', JSON.stringify([]))
 }
 
+// Funções utilitárias para localStorage
+function getCadastros() {
+    const cadastrosJSON = localStorage.getItem('arrayCadastro')
+    return JSON.parse(cadastrosJSON)
+}
+
+function saveCadastros(cadastros) {
+    const cadastrosJSON = JSON.stringify(cadastros)
+    localStorage.setItem('arrayCadastro', cadastrosJSON)
+}
+
 // Deleta da memória um cadastro a partir do seu id
 function excluiCadastro(id){
-    let cadastrosJSON = localStorage.getItem('arrayCadastro')
-    let cadastros = JSON.parse(cadastrosJSON)
+    let cadastros = getCadastros()
     let linhaId = cadastros.findIndex((cadastro => cadastro.id === id))
     cadastros.splice(linhaId, 1)
-    cadastrosJSON = JSON.stringify(cadastros)
-    localStorage.setItem('arrayCadastro', cadastrosJSON)
+    saveCadastros(cadastros)
     carregaTebela()
 }
+
+// Adiciona filtro para permitir apenas números no campo telefone
+document.getElementById('telefone').addEventListener('input', function(e) {
+    this.value = this.value.replace(/[^0-9]/g, '');
+});
 
 function adicionaCadastro(){
     // Guarda as informações contindas no form quando o botão de salvar é clickado
@@ -36,6 +50,18 @@ function adicionaCadastro(){
     let dataNascimentoIn = document.getElementById('dataNascimento')
     let telefoneIn = document.getElementById('telefone')
     let emailIn = document.getElementById('email')
+    
+    // Verifica se algum campo está vazio
+    if (!nomeIn.value || !dataNascimentoIn.value || !telefoneIn.value || !emailIn.value) {
+        alert('Por favor, preencha todos os campos!')
+        return
+    }
+
+    // Verifica se o email contém @
+    if (!emailIn.value.includes('@')) {
+        alert('Por favor, insira um email válido com @!')
+        return
+    }
     
     // Dados recolhidos do LocalStorage e instanciação do Factory
     const cadastroFactory = new CadastroFactory
@@ -53,8 +79,7 @@ function adicionaCadastro(){
     }
 
     // Devolução dos dados atualizados com a adição
-    cadastrosJSON = JSON.stringify(cadastros)
-    localStorage.setItem('arrayCadastro', cadastrosJSON)
+    saveCadastros(cadastros)
 
     // Deixa as entradas do formulario em Branco
     nomeIn.value = ''
@@ -70,8 +95,7 @@ function adicionaCadastro(){
 // Atualiza a tabela no html
 function carregaTebela(){
     // Carrega dos dados do localStorage
-    let cadastrosJSON = localStorage.getItem('arrayCadastro')
-    let cadastros = JSON.parse(cadastrosJSON)
+    let cadastros = getCadastros()
 
     // Deleta a tabela atual
     let tabela = document.getElementById('Cadastros')
@@ -137,12 +161,11 @@ function popularLocalStorage() {
     localStorage.setItem('arrayCadastro', JSON.stringify(cadastros));
 }
   
-
+function fecharModal() {
+    document.getElementById('modal').style.display='none'
+}
 
   popularLocalStorage() // coloca 22 linhas de teste e sobrescreve as demais (apaga tudo e coloca novas 22 linhas)
   carregaTebela() // remove as linhas da tabela e popula de acordo com os objetos no localstorage.
   
 
-function fecharModal() {
-    document.getElementById('modal').style.display='none'
-}
