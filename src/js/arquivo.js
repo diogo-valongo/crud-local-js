@@ -161,47 +161,6 @@ function popularLocalStorage() {
     saveCadastros(cadastros)
 }
 
-// Atualiza a tabela no html
-function carregaTebela() {
-    console.log("carregaTebela");
-    // Carrega dos dados do localStorage
-    let cadastros = getCadastros()
-
-    // Deleta a tabela atual
-    let tabela = document.getElementById('Cadastros')
-    let linhas = tabela.tBodies[0].rows
-    while (linhas.length > 0) {
-        tabela.deleteRow(0);
-    }
-
-    // Para cada cadastro em memória se cria uma linha nova na tabela com o botão para exclusão
-    cadastros.forEach(cadastro => {
-        let novaLinha = tabela.insertRow()
-
-        // Adiciona as células com os dados
-        let nomeCel = novaLinha.insertCell()
-        nomeCel.textContent = cadastro.nome
-        let dataNascimentoCel = novaLinha.insertCell()
-        dataNascimentoCel.textContent = cadastro.dataNascimento
-        let telCel = novaLinha.insertCell()
-        telCel.textContent = cadastro.tel
-        let emailCel = novaLinha.insertCell()
-        emailCel.textContent = cadastro.email
-
-        // Adiciona o botão de excluir
-        let excluirCel = novaLinha.insertCell()
-        let botaoExcluir = document.createElement('button')
-        botaoExcluir.textContent = 'Excluir'
-        botaoExcluir.classList.add("btn", "btn-delete")
-        botaoExcluir.onclick = function () {
-            excluiCadastro(cadastro.id) // botão passa o id do seu respectivo cadastro para a função de deleção
-        }
-        excluirCel.appendChild(botaoExcluir)
-    })
-
-}
-
-
 // Função para atualizar a tabela com os resultados filtrados
 function atualizaTabelaFiltrada(cadastrosFiltrados) {
     console.log("atualizaTabelaFiltrada");
@@ -210,7 +169,7 @@ function atualizaTabelaFiltrada(cadastrosFiltrados) {
 
     // Limpa a tabela atual
     while (tbody.rows.length > 0) {
-        tbody.deleteRow(0);
+        tabela.deleteRow(0);
     }
 
     // Adiciona as linhas filtradas
@@ -245,4 +204,4 @@ function fecharModal() {
 }
 
 popularLocalStorage() // coloca 22 linhas de teste e sobrescreve as demais (apaga tudo e coloca novas 22 linhas)
-carregaTebela() // remove as linhas da tabela e popula de acordo com os objetos no localstorage.
+atualizaTabelaFiltrada(getCadastros()) // remove as linhas da tabela e popula de acordo com os objetos no localstorage.
