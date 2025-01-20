@@ -18,7 +18,7 @@ A lógica por trás dessas funções baseia-se na manipulação de arrays e em i
 
 O ChatGPT também foi utilizado para gerar uma população inicial da tabela (hard coded), permitindo a realização de testes nas funcionalidades.
 
-Depois as funcionalidades do sistema, dediquei um momento a refatoração e testes de sistema visando remover código duplicado.
+Depois de finalizar as funcionalidades do sistema, dediquei um momento a refatoração e testes de sistema visando remover código duplicado.
 
 ***
 
