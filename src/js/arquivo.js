@@ -87,8 +87,7 @@ function adicionaCadastro() {
 
     // Dados recolhidos do LocalStorage e instanciação do Factory
     const cadastroFactory = new CadastroFactory
-    let cadastrosJSON = localStorage.getItem('arrayCadastro')
-    let cadastros = JSON.parse(cadastrosJSON)
+    let cadastros = getCadastros()
 
     // Percorrer com a finalidade de achar o ID mais próximo de 1 que não está sendo usado para criar o próximo cadastro
     for (let i = 0; true; i++) {
