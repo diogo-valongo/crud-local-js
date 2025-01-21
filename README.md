@@ -37,7 +37,7 @@ A utilização de um "banco de dados" não relacional (LocalStorage) expõe desa
 1. Para baixar o sistema utilize o git clone dessa forma: 
 
 ```
-git clone https://github.com/Compass-pb-aws-2025-06-JANEIRO/sprint-1-pb-aws-janeiro.git
+git clone https://github.com/Compass-pb-aws-2025-JANEIRO/sprint-1-pb-aws-janeiro.git
 ```
 
 2. Após clonar o repositório selecione a branch ```diogo-valongo``` com o seguinte comando:
