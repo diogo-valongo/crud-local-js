@@ -63,8 +63,6 @@ function excluiCadastro(id) {
     atualizaTabelaFiltrada(cadastros)
 }
 
-
-
 function adicionaCadastro() {
     console.log("adicionaCadastro");
     // Guarda as informações contindas no form quando o botão de salvar é clickado
@@ -147,12 +145,13 @@ function popularLocalStorage() {
 
     for (let i = 1; i <= 22; i++) {
         if (!idsExistentes.includes(i)) {
-            cadastros.push(new CadastroFactory().criaCadastro(
-                cadastrosIniciais[i-1].id,
-                cadastrosIniciais[i-1].nome,
-                cadastrosIniciais[i-1].dataNascimento,
-                cadastrosIniciais[i-1].tel,
-                cadastrosIniciais[i-1].email
+            // Adiciona o cadastro na posição equivalente ao id do cadastro - 1, sem apagar o registro anterior
+            cadastros.splice(i - 1, 0, new CadastroFactory().criaCadastro(
+                cadastrosIniciais[i - 1].id,
+                cadastrosIniciais[i - 1].nome,
+                cadastrosIniciais[i - 1].dataNascimento,
+                cadastrosIniciais[i - 1].tel,
+                cadastrosIniciais[i - 1].email
             ));
         }
     }
