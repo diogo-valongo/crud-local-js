@@ -1,68 +1,68 @@
-# Avaliação Sprint 1 - Programa de Bolsas Compass UOL  AWS - turma janeiro/2025
+# Sistema de Cadastro Local em JavaScript
 
-Avaliação da primeira sprint do programa de bolsas Compass UOL para formação em Inteligência Artificial para AWS.
+Este projeto é um sistema simples de cadastro de dados desenvolvido em JavaScript, com armazenamento local utilizando o LocalStorage do navegador. O objetivo é permitir a criação, consulta, atualização e remoção de registros de forma prática, sem necessidade de backend ou banco de dados externo.
 
-***
+---
 
-# Sistema em JavaScript para armazenamento de dados cadastrais.
+## Funcionalidades
 
-***
+- Adicionar novos cadastros
+- Consultar registros existentes
+- Atualizar informações de um cadastro
+- Remover cadastros
+- Busca por nome na tabela
 
-## Processo de Desenvolvimento
+---
 
-Utilizei ferramentas de inteligência artificial generativa, como o ChatGPT, para desenvolver um protótipo inicial da tela da aplicação. Após isso, realizei ajustes para personalizá-la de acordo com minhas preferências
+## Tecnologias Utilizadas
 
-Para implementar as funções de Adição, Remoção e Atualização na tabela, utilizei um array obtido do ```LocalStorage```, que é atualizado e enviado de volta ao ```LocalStorage``` após as alterações nos dados.
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- LocalStorage (armazenamento local do navegador)
 
-A lógica por trás dessas funções baseia-se na manipulação de arrays e em interações diretas com os elementos do HTML.
+---
 
-O ChatGPT também foi utilizado para gerar uma população inicial da tabela (hard coded), permitindo a realização de testes nas funcionalidades.
+## Como Utilizar
 
-Depois de finalizar as funcionalidades do sistema, dediquei um momento a refatoração e testes de sistema visando remover código duplicado.
+### 1. Clonando o Repositório
 
-***
-
-## Dificuldades Conhecidas
-
-Minha pouca experiência com JavaScript e o hábito de trabalhar com linguagens tipadas evidenciaram dificuldades em lidar com erros inesperados, até mesmo a ausência deles.
-
-A utilização de um "banco de dados" não relacional (LocalStorage) expõe desafios que normalmente seriam resolvidos por SGBDs convencionais.
-
-***
-
-## Utilizando o Sistema
-
-### Baixando o sistema
-
-1. Para baixar o sistema utilize o git clone dessa forma: 
+Clone o repositório para sua máquina local:
 
 ```
-git clone https://github.com/Compass-pb-aws-2025-JANEIRO/sprint-1-pb-aws-janeiro.git
+git clone https://github.com/diogo-valongo/crud-local-js
 ```
 
-2. Após clonar o repositório selecione a branch ```diogo-valongo``` com o seguinte comando:
+Acesse a branch principal do projeto:
 
 ```
 git checkout diogo-valongo
 ```
 
-3. Para acessar o sistema, abra o arquivo  ```index.html``` com seu navegador favorito. O arquivo pode ser encontrado em 
-```sprint-1-pb-aws-janeiro\src\html```
+### 2. Executando o Sistema
 
-### Navegando no sistema
+Abra o arquivo `index.html` localizado em `src/html` no seu navegador favorito:
 
-Uma vez que estamos no ```index.html``` podemos realizar algumas ações:
+```
+src/html/index.html
+```
 
-* **Criando cadastros**: Para criar um novo cadastro basta clickar no botão ```Adicionar Cadastro```, após isso basta preencher os dados e clickar em ```Salvar```.
+### 3. Navegação e Uso
 
-* **Consultando cadastros**: Para consultar os cadatros no sistema é possível buscas manualmente um cadastro na tabela do ```index.html```, alternativamente também pode se usar a barra de pesquisa de nomes caso queira buscar algum nome específico.
+- **Adicionar cadastro:** Clique em "Adicionar Cadastro", preencha os dados e clique em "Salvar".
+- **Consultar cadastros:** Visualize os registros na tabela ou utilize a barra de pesquisa para buscar por nome.
+- **Atualizar cadastro:** Clique em "Editar" na linha desejada, altere as informações e salve.
+- **Excluir cadastro:** Clique em "Excluir" na linha correspondente ao registro que deseja remover.
 
-* **Deletando cadastros**: Para deletar um cadastro basta clickar no botão ```Excluir``` na linha que deve ser excluída.
+---
 
+## Observações
 
+- Todos os dados são armazenados localmente no navegador, portanto não são compartilhados entre diferentes dispositivos ou navegadores.
+- O sistema foi desenvolvido com foco em simplicidade e aprendizado de manipulação de dados no frontend.
 
-***
+---
 
 ## Autor
 
-* Diogo Valongo da Fonseca Santos ([```diogo-valongo```](https://github.com/diogo-valongo))
+- Diogo Valongo da Fonseca Santos ([diogo-valongo](https://github.com/diogo-valongo))
